@@ -4,14 +4,12 @@ html(lang="en")
 		<!-- SCRIPTS -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<!-- FONTS -->
-		<link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
+		//- <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+		//- <link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
 
 		title scrumblr
 
 body
-	h1 scrumblr by <a href="http://aliasaria.ca">aliasaria</a>
-
 	div.board-outline
 		div#board
 			div#board-doodles
@@ -20,18 +18,11 @@ body
 			table#board-table.board-table
 				tr
 					td
-						h1.home scrumblr.
+						h1.home montimage
 						form.home(onsubmit="return go();")
-							label name your new board:
 							br
 							input.text(type="text", name="name")
-							a#go(onclick="return go();") &nbsp;go.
-						<br><br>
-						p.home example board:
-						p.home!= '<a href="http://' + locals.url + '/demo">' + locals.url + '/demo</a>'
-						<br><br><br>
-						p.home.small sourcecode at <a href="https://github.com/aliasaria/scrumblr">github</a>
-
+							a#go(onclick="return go();") &nbsp;go
 	div.stickers
 		div.sticker#sticker-red
 		div.sticker#sticker-blue
@@ -56,4 +47,4 @@ body
 
 	<script type="text/javascript">function go() {var value = document.forms[0].elements["name"].value; value = escape(value); window.location.href = value; return false;}</script>
 
-	<script type="text/javascript">	  var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-2069672-4']);  _gaq.push(['_trackPageview']);   (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })(); </script>
+	//- document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })(); </script>

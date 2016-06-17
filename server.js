@@ -8,7 +8,7 @@ var sanitizer = require('sanitizer');
 var compression = require('compression');
 var express = require('express');
 var conf = require('./config.js').server;
-var ga = require('./config.js').googleanalytics;
+var auth = require('http-auth');
 
 /**************
  LOCAL INCLUDES
@@ -28,11 +28,17 @@ var sids_to_user_names = [];
 var app = express();
 var router = express.Router();
 
+var basic = auth.basic({
+		realm: "Simon Area."
+	}, function (username, password, callback) { 
+	    // Custom authentication 
+	    // Use callback(error) if you want to throw async error. 
+		callback(username === "scrum" && password === "montiper77");
+	}
+);
+app.use(auth.connect(basic));
 app.use(compression());
 app.use(conf.baseurl, router);
-
-app.locals.ga = ga.enabled;
-app.locals.gaAccount = ga.account;
 
 router.use(express.static(__dirname + '/client'));
 
@@ -65,17 +71,9 @@ router.get('/', function(req, res) {
 	});
 });
 
-
-router.get('/demo', function(req, res) {
-	res.render('index.jade', {
-		pageTitle: 'scrumblr - demo',
-		demo: true
-	});
-});
-
 router.get('/:id', function(req, res){
 	res.render('index.jade', {
-		pageTitle: ('scrumblr - ' + req.params.id)
+		pageTitle: ('SCRUM - MMT - ' + req.params.id)
 	});
 });
 
