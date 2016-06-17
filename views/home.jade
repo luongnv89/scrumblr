@@ -4,43 +4,18 @@ html(lang="en")
 		<!-- SCRIPTS -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<!-- FONTS -->
-		<link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
+		//- <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+		//- <link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
 
 		title Luong NGUYEN's scrum
 
 body
 	h1 KISS - Keep it simple, stupid
-
-	div.board-outline
-		div#board
-			div#board-doodles
-			table#board-table.board-table
-				tr
-					td
-						h1.home Hi!
 						form.home(onsubmit="return go();")
 							label  Keep focus
 							br
 							input.text(type="text", name="name")
 							a#go(onclick="return go();") &nbsp;go.
-
-	div.stickers
-		div.sticker#sticker-red
-		div.sticker#sticker-blue
-		div.sticker#sticker-yellow
-		div.sticker#sticker-green
-		br
-		div.sticker#sticker-pink
-		div.sticker#sticker-lightblue
-		div.sticker#sticker-orange
-		div.sticker#sticker-purple
-		br
-		div.sticker#sticker-gold
-		div.sticker#sticker-bluestar
-		div.sticker#sticker-silverstar
-		div.sticker#sticker-redstar
-
 
 	//display # of active users here
 	div.active-connections= "connections: " + connected
@@ -48,3 +23,4 @@ body
 	//<div style="width: 980px; height: 450px; border: solid 2px; opacity:.1; margin-top: 100px"> this will be the backlog that only appears on drag or perhaps not at all</div>
 
 	<script type="text/javascript">function go() {var value = document.forms[0].elements["name"].value; value = escape(value); window.location.href = value; return false;}</script>
+	//- document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })(); </script>

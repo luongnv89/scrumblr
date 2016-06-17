@@ -8,6 +8,7 @@ var sanitizer = require('sanitizer');
 var compression = require('compression');
 var express = require('express');
 var conf = require('./config.js').server;
+var auth = require('http-auth');
 
 /**************
  LOCAL INCLUDES
@@ -27,6 +28,15 @@ var sids_to_user_names = [];
 var app = express();
 var router = express.Router();
 
+var basic = auth.basic({
+		realm: "Luong's SCRUM Board"
+	}, function (username, password, callback) { 
+	    // Custom authentication 
+	    // Use callback(error) if you want to throw async error. 
+		callback(username === "louis" && password === "maint2017");
+	}
+);
+app.use(auth.connect(basic));
 app.use(compression());
 app.use(conf.baseurl, router);
 
@@ -61,17 +71,9 @@ router.get('/', function(req, res) {
 	});
 });
 
-
-router.get('/demo', function(req, res) {
-	res.render('index.jade', {
-		pageTitle: 'scrumblr - demo',
-		demo: true
-	});
-});
-
 router.get('/:id', function(req, res){
 	res.render('index.jade', {
-		pageTitle: ('scrumblr - ' + req.params.id)
+		pageTitle: ('Luong\'s SCRUM - ' + req.params.id)
 	});
 });
 
