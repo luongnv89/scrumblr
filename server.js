@@ -29,7 +29,7 @@ var app = express();
 var router = express.Router();
 
 var basic = auth.basic({
-		realm: "Simon Area."
+		realm: "Montimage SCRUM Board"
 	}, function (username, password, callback) { 
 	    // Custom authentication 
 	    // Use callback(error) if you want to throw async error. 
